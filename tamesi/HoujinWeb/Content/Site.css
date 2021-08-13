@@ -1,0 +1,86 @@
+﻿html {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background-color: #dff0d8;
+    height: 100%;
+    padding-bottom: 60px;
+}
+
+#wrap {
+    height: 100%;
+    overflow: auto;
+}
+
+.body-content {
+    min-height: 100%;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 85%;
+    /* フッタの高さ */
+    /*height: 60px;*/
+    height: 10%;
+    /* トップ画面以外の制御を入れないとトップ画面でも出てしまうので一旦コメントアウト。気が向いたらやる */
+    /*border: 7px solid;
+    border-color: silver;*/
+}
+
+.h_line2 {
+    border-bottom: dotted;
+    border-width: 5px;
+    border-color: midnightblue;
+}
+
+.element {
+    line-height: 1.0em;
+    padding: 5px;
+    border-left: thick solid #edab7b;
+}
+
+#Menu {
+    height: 106%;
+    width: 15%;
+    display: block;
+    border: 7px solid;
+    border-color: silver;
+}
+
+#MenuHederUpper {
+    height: 3%;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    background-color: cornflowerblue;
+}
+
+#MenuOther {
+    height: 100%;
+    width: 85%;
+}
+
+/*使ってない(画面に表示する文言のブロックを中央寄せにしたいがうまくいっていない。課題にして後でやる。)*/
+#HoujinDelete {
+    margin: auto;
+}
+
+/*使ってない*/
+/*.LayoutRight {
+    float: right;*/
+    /*margin-left: 200px;*/
+    /*width: 7px;
+    height: 900px;
+    background-color: silver;
+    display:block;
+}*/
+/*使ってない*/
+/*.BoderLeft {
+    float: left;
+    display:block;
+}*/
+
