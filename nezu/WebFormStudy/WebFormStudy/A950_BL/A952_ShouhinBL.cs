@@ -3,16 +3,17 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using System.Web.UI.WebControls;
 
 namespace WebFormStudy.A950_BL
 {
     public class A952_ShouhinBL
     {
-        public String GetShouhinSelect(A950_CommonBL cb)
+        public SqlDataSource GetShouhinSelect(A950_CommonBL cb, SqlDataSource sds)
         {
 
             // クエリ作成
-            // sqlパラメータは、まだやっていない
+            // sqlインジェクション対策は、まだやっていない
             String queryString = String.Empty;
             queryString = "SELECT ShouhinId, ShouhinName, ShouhinDetail, ZaikoSuu, UpdateDate FROM T_Shouhin ";
 
@@ -21,6 +22,7 @@ namespace WebFormStudy.A950_BL
             {
                 // 商品ID条件設定
                 queryWhereString = "WHERE ShouhinId LIKE '%" + cb.ShouhinId + "%'";
+                //queryWhereString = "WHERE ShouhinId LIKE '%@ShouhinId%'";
             }
             if (cb.ShouhinName != String.Empty)
             {
@@ -47,12 +49,8 @@ namespace WebFormStudy.A950_BL
                 }
             }
 
-
-            //queryString = queryString + "WHERE ShouhinId LIKE '%" + cb.ShouhinId + "%'";
-            //queryString = queryString + " AND ShouhinName LIKE '%" + cb.ShouhinName + "%'";
-            //queryString = queryString + " AND ShouhinDetail LIKE '%" + cb.ShouhinDetail + "%'";
-            queryString = queryString + queryWhereString;
-            return queryString.ToString();
+            sds.SelectCommand = queryString + queryWhereString;
+            return sds;
         }
     }
 }

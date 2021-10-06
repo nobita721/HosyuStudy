@@ -20,9 +20,9 @@ namespace WebFormStudy.A010_Shouhin
             cb.ShouhinName = Request.QueryString["sname"];
             cb.ShouhinDetail = Request.QueryString["sdetail"];
 
-            // データ取得、グリッドビューに設定
+            // データ取得、グリッドビューに設定。テストコード用にSqlDataSourceに返す。
             A952_ShouhinBL sb = new A952_ShouhinBL();
-            sds.SelectCommand = sb.GetShouhinSelect(cb);
+            SqlDataSource testsds = sb.GetShouhinSelect(cb, sds);
         }
     }
 }

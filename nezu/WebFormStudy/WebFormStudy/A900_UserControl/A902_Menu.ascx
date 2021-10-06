@@ -4,4 +4,9 @@
     <asp:Panel ID="PanelMenuHeader" runat="server" BackColor="CornflowerBlue" Height="24px">
         <asp:Label ID="lblHederTitle" runat="server" Text="Label"></asp:Label>
     </asp:Panel>
+    <asp:Panel ID="PanelMenuContents" runat="server" Height="500px" Width="200px" Font-Size="Medium">
+        <div Class="MenuContents">
+            <asp:LinkButton ID="LinkMenu" runat="server">LinkButton</asp:LinkButton>
+        </div>
+    </asp:Panel>
 </asp:Panel>

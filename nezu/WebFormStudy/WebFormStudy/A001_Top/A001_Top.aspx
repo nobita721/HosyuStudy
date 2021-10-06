@@ -7,12 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>トップ画面</title>
 
-    <%--<asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>--%>
     <webopt:bundlereference runat="server" path="~/Content/Common.css" />
 
     <script type="text/javascript">
+        // 課題：同じ画面を再度開くと同じ画面が別ウィンドウで開いてしまうので対処必要。
         function openWin() {
             var url = '../A010_Shouhin/A011_ShouhinSerch.aspx';
             // 画面サイズ測定
@@ -29,23 +27,6 @@
 </head>
 <body>
     <form runat="server">
-        <%--<asp:ScriptManager runat="server">
-            <Scripts>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-            </Scripts>
-        </asp:ScriptManager>--%>
-
         <div Class="Menu">
             <win:NaviMenu id="navimenu" runat="Server" />
         </div>
@@ -57,9 +38,6 @@
                 <asp:Image ID="btnImgSerch" runat="server" Height="830px" Width="1650px" ImageUrl="~/Images/bird.png" />
             </a>
         </div>
-
-        <%--ポップアップブロックされて無理。javascriptは、ページに直書き。jsを外部ファイルにする方法は、後で検討--%>
-        <%--<asp:ImageButton ID="imgBtnSerch" runat="server" Height="830px" Width="1650px" ImageUrl="~/Images/bird.png" OnClick="imgBtnSerch_Click" />--%>
     </form>
 </body>
 </html>
