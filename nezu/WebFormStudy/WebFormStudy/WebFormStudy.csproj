@@ -105,12 +105,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="A001_Top\A001_Top.aspx" />
+    <Content Include="A010_Shouhin\A011_ShouhinSerch.aspx" />
+    <Content Include="A010_Shouhin\A012_ShouhinList.aspx" />
+    <Content Include="A900_UserControl\A901_Heder.ascx" />
+    <Content Include="A900_UserControl\A902_Menu.ascx" />
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Common.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -124,7 +130,19 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="App_Code\ShouhinDataSet.xsc">
+      <DependentUpon>ShouhinDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Code\ShouhinDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShouhinDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="App_Code\ShouhinDataSet.xss">
+      <DependentUpon>ShouhinDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\bird.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -160,6 +178,54 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="A001_Top\A001_Top.aspx.cs">
+      <DependentUpon>A001_Top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="A001_Top\A001_Top.aspx.designer.cs">
+      <DependentUpon>A001_Top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="A010_Shouhin\A011_ShouhinSerch.aspx.cs">
+      <DependentUpon>A011_ShouhinSerch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="A010_Shouhin\A011_ShouhinSerch.aspx.designer.cs">
+      <DependentUpon>A011_ShouhinSerch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="A010_Shouhin\A012_ShouhinList.aspx.cs">
+      <DependentUpon>A012_ShouhinList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="A010_Shouhin\A012_ShouhinList.aspx.designer.cs">
+      <DependentUpon>A012_ShouhinList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="A900_UserControl\A901_Heder.ascx.cs">
+      <DependentUpon>A901_Heder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="A900_UserControl\A901_Heder.ascx.designer.cs">
+      <DependentUpon>A901_Heder.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="A900_UserControl\A902_Menu.ascx.cs">
+      <DependentUpon>A902_Menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="A900_UserControl\A902_Menu.ascx.designer.cs">
+      <DependentUpon>A902_Menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="A950_BL\A950_CommonBL.cs" />
+    <Compile Include="A950_BL\A951_CommonUI.cs" />
+    <Compile Include="A950_BL\A952_ShouhinBL.cs" />
+    <Compile Include="A950_BL\A952_ShouhinBL_bk.cs" />
+    <Content Include="App_Code\ShouhinDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShouhinDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Code\T_ShouhinTableAdapter.cs" />
+    <Content Include="App_Code\ShouhinDataSet.cs">
+      <DependentUpon>ShouhinDataSet.xsd</DependentUpon>
+    </Content>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -196,12 +262,14 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

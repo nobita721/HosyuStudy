@@ -1,0 +1,35 @@
+﻿body {
+    background-color: #dff0d8;
+    height: 100%;
+}
+
+.Menu {
+    float: left;
+    display:block;
+}
+
+.Header {
+    float: right;
+}
+
+.ContentTop {
+    float: right;
+    margin-left: 30px;
+}
+
+.Content {
+    float: left;
+    margin-left: 359px;
+}
+
+.Footer {
+    float: right;
+    margin-top: 620px;
+    margin-right: 9px;
+}
+
+.FooterBtn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
