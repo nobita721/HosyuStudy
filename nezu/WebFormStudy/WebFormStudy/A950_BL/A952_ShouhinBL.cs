@@ -9,11 +9,11 @@ namespace WebFormStudy.A950_BL
 {
     public class A952_ShouhinBL
     {
-        public SqlDataSource GetShouhinSelect(A950_CommonBL cb, SqlDataSource sds)
+        public void SetShouhinSelect(A950_CommonBL cb, SqlDataSource sds)
         {
 
             // クエリ作成
-            // sqlインジェクション対策は、まだやっていない
+            // 課題：sqlインジェクション対策は、まだやっていない
             String queryString = String.Empty;
             queryString = "SELECT ShouhinId, ShouhinName, ShouhinDetail, ZaikoSuu, UpdateDate FROM T_Shouhin ";
 
@@ -50,7 +50,7 @@ namespace WebFormStudy.A950_BL
             }
 
             sds.SelectCommand = queryString + queryWhereString;
-            return sds;
+
         }
     }
 }
