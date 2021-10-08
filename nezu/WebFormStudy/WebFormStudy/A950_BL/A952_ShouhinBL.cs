@@ -50,7 +50,8 @@ namespace WebFormStudy.A950_BL
             }
 
             sds.SelectCommand = queryString + queryWhereString;
-
+            //sds.SelectParameters.Clear();
+            //sds.SelectParameters.Add("ShouhinId", cb.ShouhinId);
         }
     }
 }
