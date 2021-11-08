@@ -14,5 +14,16 @@ namespace WebFormStudy.A010_Shouhin
 
         }
 
+        protected void btnSerch_Click(object sender, EventArgs e)
+        {
+            // 同一ウィンドウでページ遷移
+            String shouhinid = HttpUtility.UrlEncode(txtShouhinId.Text);
+            String shouhinname = HttpUtility.UrlEncode(txtShouhinName.Text);
+            String shouhindetail = HttpUtility.UrlEncode(txtShouhinDetail.Text);
+            Response.Redirect("A012_ShouhinList.aspx?shouhinid=" + shouhinid + 
+                                                "&shouhinname=" + shouhinname + 
+                                                "&shouhindetail=" + shouhindetail);
+
+        }
     }
 }

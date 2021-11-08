@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WebFormStudy.A950_BL;
+//using WebFormStudy.A950_BL;
+using WebFormBL;
 
 namespace WebFormStudy.A900_UserControl
 {
@@ -17,8 +18,9 @@ namespace WebFormStudy.A900_UserControl
             String rPath = Request.Path;
 
             // ヘッタータイトル
-            A951_CommonUI cu = new A951_CommonUI();
-            lblHederTitle.Text = cu.GetHeaderTitle(rPath);
+            A951_CommonBL cb = new A951_CommonBL();
+            A950_CommonPropertyBL cpb = cb.GetCommmonInfo(rPath, "header");
+            lblHederTitle.Text = cpb.DisplayName;
         }
     }
 }

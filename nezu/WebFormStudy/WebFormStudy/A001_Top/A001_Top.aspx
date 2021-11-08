@@ -10,18 +10,32 @@
     <webopt:bundlereference runat="server" path="~/Content/Common.css" />
 
     <script type="text/javascript">
-        // 課題：同じ画面を再度開くと同じ画面が別ウィンドウで開いてしまうので対処必要。
+        // アンロード時にサブ画面を閉じる
+        window.onunload = function () {
+            closeWindow();
+        }
+
         function openWin() {
             var url = '../A010_Shouhin/A011_ShouhinSerch.aspx';
             // 画面サイズ測定
-            x = (screen.width) / 1;
-            y = (screen.height) / 1;
-            window.open(
-                url,
-                "_blank",
-                "screenX=0,screenY=0,left=0,top=0,width=" + x + ",height=" + y + ",scrollbars=0,toolbar=0,menubar=0,staus=0,resizable=0"
-        );
-      }
+            x = screen.width;
+            y = screen.height;
+            var subWindow = window.open(
+                            url,
+                            'ShouhinSerch',
+                            "screenX=0,screenY=0,left=0,top=0,width=" + x + ",height=" + y + ",scrollbars=0,toolbar=0,menubar=0,staus=0,resizable=0"
+            );
+            window.focus();
+            subWindow.focus();
+        }
+
+        // すでに開いているかチェックする
+        window.addEventListener('unload', function (event) {
+            if (typeof subWindow != "undefined") {
+                subWindow.close();
+            }
+        });
+
     </script>
 
 </head>

@@ -51,15 +51,6 @@ namespace WebFormStudy.A010_Shouhin
         protected global::System.Web.UI.WebControls.GridView ShouhinGridView;
 
         /// <summary>
-        /// sds コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sds;
-
-        /// <summary>
         /// PnlFooter コントロール。
         /// </summary>
         /// <remarks>
@@ -69,12 +60,12 @@ namespace WebFormStudy.A010_Shouhin
         protected global::System.Web.UI.WebControls.Panel PnlFooter;
 
         /// <summary>
-        /// btnClose コントロール。
+        /// btnReturn コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClose;
+        protected global::System.Web.UI.WebControls.Button btnReturn;
     }
 }

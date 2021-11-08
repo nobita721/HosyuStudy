@@ -2,14 +2,14 @@
 <%@ Register Tagprefix="win" Tagname="NaviHeader" Src="~/A900_UserControl/A901_Heder.ascx" %>
 <%@ Register Tagprefix="win" Tagname="NaviMenu" Src="~/A900_UserControl/A902_Menu.ascx" %>
 
-<html">
+<html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>商品検索</title>
 
     <webopt:bundlereference runat="server" path="~/Content/Common.css" />
 
-    <script type="text/javascript">
+<%--    <script type="text/javascript">
         function openWin() {
             var url = 'A012_ShouhinList.aspx';
             var sid = document.forms.form1.txtShouhinId.value;
@@ -25,7 +25,7 @@
                 "screenX=0,screenY=0,left=0,top=0,width=" + x + ",height=" + y + ",scrollbars=0,toolbar=0,menubar=0,staus=0,resizable=0"
             );
         }
-    </script>
+    </script>--%>
 
 </head>
 <body>
@@ -53,7 +53,8 @@
         <div Class="Footer">
             <asp:Panel ID="PnlFooter" runat="server" BorderColor="Silver" BorderWidth="3px" Height="80px" Width="1650px" HorizontalAlign="Right">
                 <P Class="FooterBtn">
-                    <asp:Button ID="btnSerch" runat="server" Text="検索" Font-Size="Medium" Height="35px" TabIndex="4" Width="100px" OnClientClick="openWin()" />
+                    <%--<asp:Button ID="btnSerch" runat="server" Text="検索" Font-Size="Medium" Height="35px" TabIndex="4" Width="100px" OnClientClick="openWin()" />--%>
+                    <asp:Button ID="btnSerch" runat="server" Text="検索" Font-Size="Medium" Height="35px" TabIndex="4" Width="100px" OnClick="btnSerch_Click"/>
                     <asp:Button ID="btnClose" runat="server" Text="閉じる" Font-Size="Medium" Height="35px" TabIndex="5" Width="100px" OnClientClick="window.close()" />
                 </P>
             </asp:Panel>

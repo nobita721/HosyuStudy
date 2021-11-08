@@ -19,15 +19,22 @@
             <win:NaviHeader id="navihead" runat="Server" />
         </div>
         <div Class="Content">
-            <asp:GridView ID="ShouhinGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ShouhinId" DataSourceID="sds" ForeColor="#333333" GridLines="None" Width="1200px">
+            <%--<asp:GridView ID="ShouhinGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ShouhinId" DataSourceID="sds" ForeColor="#333333" GridLines="None" Width="1200px">--%>
+            <asp:GridView ID="ShouhinGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ShouhinId" ForeColor="#333333" GridLines="None" Width="1200px" OnSelectedIndexChanged="ShouhinGridView_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="ShouhinId" HeaderText="商品ID" ReadOnly="True" SortExpression="ShouhinId" />
-                    <asp:BoundField DataField="ShouhinName" HeaderText="商品名" SortExpression="ShouhinName" />
-                    <asp:BoundField DataField="ShouhinDetail" HeaderText="商品詳細" SortExpression="ShouhinDetail" />
-                    <asp:BoundField DataField="ZaikoSuu" HeaderText="在庫数" SortExpression="ZaikoSuu" />
-                    <asp:BoundField DataField="UpdateDate" HeaderText="更新日時" SortExpression="UpdateDate" />
-                    <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" ButtonType="Button" />
+                    <asp:BoundField DataField="ShouhinId" HeaderText="商品ID" ReadOnly="True" />
+                    <asp:BoundField DataField="ShouhinName" HeaderText="商品名" />
+                    <asp:BoundField DataField="ShouhinDetail" HeaderText="商品詳細"  />
+                    <asp:BoundField DataField="ZaikoSuu" HeaderText="在庫数" >
+                    <ItemStyle HorizontalAlign="Right" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="UpdateDate" HeaderText="更新日時" >
+                    <ItemStyle HorizontalAlign="Right" />
+                    </asp:BoundField>
+                    <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" ButtonType="Button" >
+                    <ItemStyle HorizontalAlign="Center" />
+                    </asp:CommandField>
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -40,12 +47,12 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            <asp:SqlDataSource ID="sds" runat="server" ConnectionString="<%$ ConnectionStrings:HosyuStudy %>" ></asp:SqlDataSource>
+            <%--<asp:SqlDataSource ID="sds" runat="server" ConnectionString="<%$ ConnectionStrings:HosyuStudy %>" ></asp:SqlDataSource>--%>
         </div>
         <div Class="Footer">
             <asp:Panel ID="PnlFooter" runat="server" BorderColor="Silver" BorderWidth="3px" Height="80px" Width="1650px" HorizontalAlign="Right">
                 <P Class="FooterBtn">
-                    <asp:Button ID="btnClose" runat="server" Text="閉じる" Font-Size="Medium" Height="35px" TabIndex="5" Width="100px" OnClientClick="window.close()" />
+                    <asp:Button ID="btnReturn" runat="server" Text="戻る" Font-Size="Medium" Height="35px" TabIndex="5" Width="100px" OnClick="btnReturn_Click" />
                 </P>
             </asp:Panel>
         </div>

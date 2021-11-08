@@ -51,12 +51,21 @@ namespace WebFormStudy.A900_UserControl
         protected global::System.Web.UI.WebControls.Panel PanelMenuContents;
 
         /// <summary>
-        /// LinkMenu コントロール。
+        /// LinkMenuLeft コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkMenu;
+        protected global::System.Web.UI.WebControls.LinkButton LinkMenuLeft;
+
+        /// <summary>
+        /// LinkMenuRight コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkMenuRight;
     }
 }

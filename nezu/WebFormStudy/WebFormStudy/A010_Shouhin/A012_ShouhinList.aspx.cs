@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using WebFormStudy.A950_BL;
+using WebFormBL;
 using System.Data;
 
 namespace WebFormStudy.A010_Shouhin
@@ -15,14 +15,29 @@ namespace WebFormStudy.A010_Shouhin
         {
 
             // パラメータの値をプロパティに設定
-            A950_CommonBL cb = new A950_CommonBL();
-            cb.ShouhinId = Request.QueryString["sid"];
-            cb.ShouhinName = Request.QueryString["sname"];
-            cb.ShouhinDetail = Request.QueryString["sdetail"];
+            A950_CommonPropertyBL cb = new A950_CommonPropertyBL();
+            cb.ShouhinId = Request.QueryString["shouhinid"];
+            cb.ShouhinName = Request.QueryString["shouhinname"];
+            cb.ShouhinDetail = Request.QueryString["shouhindetail"];
 
-            // SQLクエリ作成、グリッドビューに設定。
+            // データ取得、グリッドビューに設定
             A952_ShouhinBL sb = new A952_ShouhinBL();
-            sb.SetShouhinSelect(cb, sds);
+            ShouhinGridView.DataSource = sb.GetShouhinSelect(cb);
+            ShouhinGridView.DataBind();
+
+        }
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            // 商品検索画面に戻る
+            Response.Redirect("A011_ShouhinSerch.aspx");
+        }
+
+        protected void ShouhinGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // GridViewの選択列の商品ID取得・編集画面に遷移
+            String shouhinid = HttpUtility.UrlEncode(ShouhinGridView.SelectedDataKey.Values["ShouhinId"].ToString());
+            Response.Redirect("A014_ShouhinUpdate.aspx?shouhinid=" + shouhinid);
         }
     }
 }
