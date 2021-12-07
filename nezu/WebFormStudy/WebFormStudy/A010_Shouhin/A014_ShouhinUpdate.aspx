@@ -49,7 +49,7 @@
             <asp:Panel ID="PnlFooter" runat="server" BorderColor="Silver" BorderWidth="3px" Height="80px" Width="1650px" HorizontalAlign="Right">
                 <P Class="FooterBtn">
                     <asp:Button ID="btnUpdate" runat="server" Text="更新" Font-Size="Medium" Height="35px" TabIndex="6" Width="100px" 
-                        OnClick="btnInsert_Click" ValidationGroup="new"/>
+                        OnClick="btnUpdate_Click" ValidationGroup="new"/>
                     <asp:Button ID="btnReturn" runat="server" Text="戻る" Font-Size="Medium" Height="35px" TabIndex="7" Width="100px" 
                         OnClick="btnReturn_Click"/>
                 </P>

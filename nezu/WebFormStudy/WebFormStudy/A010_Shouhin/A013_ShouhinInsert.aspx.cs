@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebFormBL;
+using System.Data;
 
 namespace WebFormStudy.A010_Shouhin
 {
@@ -13,7 +14,7 @@ namespace WebFormStudy.A010_Shouhin
         protected void Page_Load(object sender, EventArgs e)
         {
             // 入力エラーメッセージを設定
-            // (エラーメッセージを一元管理(CustomValidator)するため、ページ表示時に設定)
+            // (エラーメッセージを一元管理するため(customValidatorは除く)、ページ表示時に設定)
             foreach (BaseValidator valid in Page.Validators)
             {
                 switch (valid.GetType().Name)
@@ -24,9 +25,18 @@ namespace WebFormStudy.A010_Shouhin
                             "{0}は必須です。", valid.ErrorMessage);
                         break;
                     case "RegularExpressionValidator":
-                        // 数値チェック
-                        valid.ErrorMessage = String.Format(
-                            "{0}は数字で入力してください。", valid.ErrorMessage);
+                        if (valid.UniqueID == "regShouhinId") 
+                        {
+                            // 桁チェック(商品IDのみ)
+                            valid.ErrorMessage = String.Format(
+                                "{0}は半角数字5桁で入力してください。", valid.ErrorMessage);
+                        }
+                        else 
+                        {
+                            // 数値チェック
+                            valid.ErrorMessage = String.Format(
+                                "{0}は半角数字で入力してください。", valid.ErrorMessage);
+                        }
                         break;
                     case "RangeValidator":
                         // 範囲チェック
@@ -72,15 +82,22 @@ namespace WebFormStudy.A010_Shouhin
         protected void customValid_ServerValidate(object sender, ServerValidateEventArgs e)
         {
             // 入力値をプロパティに設定
+            // (検索のメソッドを使い回すので商品名・商品詳細は、空文字設定)
             A950_CommonPropertyBL cb = new A950_CommonPropertyBL();
             cb.ShouhinId = txtShouhinId.Text;
+            cb.ShouhinName = String.Empty;
+            cb.ShouhinDetail = String.Empty;
 
             // 重複チェックして結果を設定
             A952_ShouhinBL sb = new A952_ShouhinBL();
-            e.IsValid = sb.GetShouhinIdCheck(cb);
+            DataSet ds = new DataSet();
+            DataTable dt;
+            ds = sb.GetShouhinSelect(cb);
+            dt = ds.Tables[0];
 
-            if (!e.IsValid)
+            if (dt.Rows.Count > 0)
             {
+                e.IsValid = false;
                 // CustomValidatorのエラーメッセージをValidationSummaryが走るタイミングで
                 // 加えられないのでarertで表示
                 ClientScriptManager cs = Page.ClientScript;
@@ -91,6 +108,10 @@ namespace WebFormStudy.A010_Shouhin
                 js += "はすでに存在しています。')";
                 js += "</script>";
                 cs.RegisterStartupScript(this.Page.GetType(), "startup", js);
+            }
+            else 
+            {
+                e.IsValid = true;
             }
         }
     }

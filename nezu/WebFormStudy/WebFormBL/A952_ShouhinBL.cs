@@ -89,10 +89,11 @@ namespace WebFormBL
         // データ登録
         public void ShouhinInsert(A950_CommonPropertyBL cb)
         {
-            
+
             // 接続文字列取得
             String connectionString = ConfigurationManager.ConnectionStrings["HosyuStudy"].ConnectionString;
 
+            //接続情報を使ってコネクションを生成
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
 
@@ -116,42 +117,6 @@ namespace WebFormBL
                 conn.Close();
 
             }
-        }
-
-        // 商品ID重複チェック
-        public bool GetShouhinIdCheck(A950_CommonPropertyBL cb)
-        {
-
-            // 重複結果(初期値は、チェックエラー)
-            bool result = false;
-
-            // 接続文字列取得
-            String connectionString = ConfigurationManager.ConnectionStrings["HosyuStudy"].ConnectionString;
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-
-                // クエリ作成
-                SqlCommand cmd = new SqlCommand("SELECT * FROM T_Shouhin WHERE ShouhinId = @ShouhinId", conn);
-
-                // パラメータ設定
-                cmd.Parameters.AddWithValue("@ShouhinId", cb.ShouhinId);
-
-                // DB接続、クエリ実行、、取得結果設定、DB切断
-                conn.Open();
-                SqlDataReader objDr = cmd.ExecuteReader();
-
-                // 取得できない場合、入力チェックOK(true)
-                if (!objDr.HasRows) 
-                {
-                    result = true;
-                }
-
-                conn.Close();
-
-            }
-
-            return result;
         }
     }
 }

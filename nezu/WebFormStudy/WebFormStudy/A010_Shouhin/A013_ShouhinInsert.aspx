@@ -26,7 +26,7 @@
                     ControlToValidate="txtShouhinId" ErrorMessage="商品ID" SetFocusOnError="True" 
                     ValidationGroup="new"><font color="red">*</font></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="regShouhinId" runat="server" 
-                    ControlToValidate="txtShouhinId" ErrorMessage="商品ID" ValidationExpression="^[0-9]+$" 
+                    ControlToValidate="txtShouhinId" ErrorMessage="商品ID" ValidationExpression="\d{5}" 
                     ValidationGroup="new"><font color="red">*</font></asp:RegularExpressionValidator>
                 <%--DBの重複チェック--%>
                 <asp:CustomValidator id="cusShouhinId" runat="Server"
