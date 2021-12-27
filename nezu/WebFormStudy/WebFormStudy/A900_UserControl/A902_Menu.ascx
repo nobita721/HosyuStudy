@@ -7,6 +7,10 @@
         <div Class="MenuContents">
             <asp:LinkButton ID="LinkMenuLeft" runat="server" OnClick="LinkMenuLeft_Click">LinkButtonL</asp:LinkButton>
             <asp:LinkButton ID="LinkMenuRight" runat="server" Visible="False" OnClick="LinkMenuRight_Click">LinkButtonR</asp:LinkButton>
+            <%--検索画面の入力値を保持するため設定--%>
+            <asp:HiddenField id="HiddenShouhinId" runat="server" value=""/>
+            <asp:HiddenField id="HiddenShouhinName" runat="server" value=""/>
+            <asp:HiddenField id="HiddenShouhinDetail" runat="server" value=""/>
         </div>
     </asp:Panel>
 </asp:Panel>

@@ -23,14 +23,14 @@
                 <asp:Label ID="lblShouhinId" runat="server" Text="商品ID" Font-Size="Medium" Height="40px" Width="200px"></asp:Label>
                 <asp:TextBox ID="txtShouhinId" runat="server" TabIndex="1" Height="30px" Width="700px" MaxLength="6"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="reqShouhinId" runat="server" 
-                    ControlToValidate="txtShouhinId" ErrorMessage="商品ID" SetFocusOnError="True" 
+                    ControlToValidate="txtShouhinId" ErrorMessage="商品IDは必須です。" SetFocusOnError="True" 
                     ValidationGroup="new"><font color="red">*</font></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="regShouhinId" runat="server" 
-                    ControlToValidate="txtShouhinId" ErrorMessage="商品ID" ValidationExpression="\d{5}" 
+                    ControlToValidate="txtShouhinId" ErrorMessage="商品IDは半角数字5桁で入力してください。" ValidationExpression="^[0-9]{5}" 
                     ValidationGroup="new"><font color="red">*</font></asp:RegularExpressionValidator>
                 <%--DBの重複チェック--%>
                 <asp:CustomValidator id="cusShouhinId" runat="Server"
-                    ControlToValidate="txtShouhinId" ErrorMessage="商品ID" SetFocusOnError="True"
+                    ControlToValidate="txtShouhinId" ErrorMessage="" SetFocusOnError="True"
                     OnServerValidate="customValid_ServerValidate"  
                     ValidationGroup="new"><font color="red">*</font></asp:CustomValidator>
             </div>
@@ -38,27 +38,27 @@
                 <asp:Label ID="lblShouhinName" runat="server" Text="商品名称" Font-Size="Medium" Height="40px" Width="200px"></asp:Label>
                 <asp:TextBox ID="txtShouhinName" runat="server" TabIndex="2" Height="30px" Width="700px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="reqShouhinName" runat="server" 
-                    ControlToValidate="txtShouhinName" ErrorMessage="商品名称" SetFocusOnError="True" 
+                    ControlToValidate="txtShouhinName" ErrorMessage="商品名称は必須です。" SetFocusOnError="True" 
                     ValidationGroup="new"><font color="red">*</font></asp:RequiredFieldValidator>
             </div>
             <div>
                 <asp:Label ID="lblShouhinDetail" runat="server" Text="商品詳細" Font-Size="Medium" Height="40px" Width="200px"></asp:Label>
                 <asp:TextBox ID="txtShouhinDetail" runat="server" TabIndex="3" Height="30px" Width="700px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="reqShouhinDetail" runat="server" 
-                    ControlToValidate="txtShouhinDetail" ErrorMessage="商品詳細" SetFocusOnError="True" 
+                    ControlToValidate="txtShouhinDetail" ErrorMessage="商品詳細は必須です。" SetFocusOnError="True" 
                     ValidationGroup="new"><font color="red">*</font></asp:RequiredFieldValidator>
             </div>
             <div>
                 <asp:Label ID="lblNyuukaSuu" runat="server" Text="入荷数" Font-Size="Medium" Height="40px" Width="200px"></asp:Label>
                 <asp:TextBox ID="txtNyuukaSuu" runat="server" TabIndex="4" Height="30px" Width="700px" MaxLength="2"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="reqNyuukaSuu" runat="server" 
-                    ControlToValidate="txtNyuukaSuu" ErrorMessage="入荷数" SetFocusOnError="True" 
+                    ControlToValidate="txtNyuukaSuu" ErrorMessage="入荷数は必須です。" SetFocusOnError="True" 
                     ValidationGroup="new"><font color="red">*</font></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="regreqNyuukaSuu" runat="server" 
-                    ControlToValidate="txtNyuukaSuu" ErrorMessage="入荷数" ValidationExpression="^[0-9]+$" 
+                <asp:RegularExpressionValidator ID="regNyuukaSuu" runat="server" 
+                    ControlToValidate="txtNyuukaSuu" ErrorMessage="入荷数は半角数字で入力してください。" ValidationExpression="^[0-9]+$" 
                     ValidationGroup="new"><font color="red">*</font></asp:RegularExpressionValidator>
                 <asp:RangeValidator ID="ranNyuukaSuu" runat="server" 
-                    ControlToValidate="txtNyuukaSuu" ErrorMessage="入荷数" 
+                    ControlToValidate="txtNyuukaSuu" ErrorMessage="入荷数は1～20の範囲で入力してください。" 
                     MaximumValue="20" MinimumValue="1" SetFocusOnError="True" Type="Integer" 
                     ValidationGroup="new"><font color="red">*</font></asp:RangeValidator>
             </div>

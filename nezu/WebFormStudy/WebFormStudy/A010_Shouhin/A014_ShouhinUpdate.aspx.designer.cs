@@ -78,6 +78,15 @@ namespace WebFormStudy.A010_Shouhin
         protected global::System.Web.UI.WebControls.TextBox txtShouhinName;
 
         /// <summary>
+        /// reqShouhinName コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqShouhinName;
+
+        /// <summary>
         /// lblShouhinDetail コントロール。
         /// </summary>
         /// <remarks>
@@ -96,22 +105,40 @@ namespace WebFormStudy.A010_Shouhin
         protected global::System.Web.UI.WebControls.TextBox txtShouhinDetail;
 
         /// <summary>
-        /// lblZaikosuu コントロール。
+        /// reqShouhinDetail コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblZaikosuu;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqShouhinDetail;
 
         /// <summary>
-        /// lblZaikosuuDisp コントロール。
+        /// lblZaikoSuu コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblZaikosuuDisp;
+        protected global::System.Web.UI.WebControls.Label lblZaikoSuu;
+
+        /// <summary>
+        /// txtZaikoSuu コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtZaikoSuu;
+
+        /// <summary>
+        /// cusZaikoSuu コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cusZaikoSuu;
 
         /// <summary>
         /// lblNyuuSyukka コントロール。
@@ -157,6 +184,51 @@ namespace WebFormStudy.A010_Shouhin
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSuuRyou;
+
+        /// <summary>
+        /// regSuuRyou コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regSuuRyou;
+
+        /// <summary>
+        /// valSum コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary valSum;
+
+        /// <summary>
+        /// HiddenShouhinId コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenShouhinId;
+
+        /// <summary>
+        /// HiddenShouhinName コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenShouhinName;
+
+        /// <summary>
+        /// HiddenShouhinDetail コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenShouhinDetail;
 
         /// <summary>
         /// PnlFooter コントロール。

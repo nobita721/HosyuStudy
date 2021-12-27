@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="A950_CommonPropertyBL.cs" />
-    <Compile Include="A951_CommonBL.cs" />
     <Compile Include="A952_ShouhinBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

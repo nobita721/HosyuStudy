@@ -110,6 +110,7 @@
     <Content Include="A010_Shouhin\A012_ShouhinList.aspx" />
     <Content Include="A010_Shouhin\A013_ShouhinInsert.aspx" />
     <Content Include="A010_Shouhin\A014_ShouhinUpdate.aspx" />
+    <Content Include="A010_Shouhin\A015_ShouhinDelete.aspx" />
     <Content Include="A900_UserControl\A901_Heder.ascx" />
     <Content Include="A900_UserControl\A902_Menu.ascx" />
     <Content Include="About.aspx" />
@@ -204,6 +205,13 @@
     <Compile Include="A010_Shouhin\A014_ShouhinUpdate.aspx.designer.cs">
       <DependentUpon>A014_ShouhinUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="A010_Shouhin\A015_ShouhinDelete.aspx.cs">
+      <DependentUpon>A015_ShouhinDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="A010_Shouhin\A015_ShouhinDelete.aspx.designer.cs">
+      <DependentUpon>A015_ShouhinDelete.aspx</DependentUpon>
+    </Compile>
     <Compile Include="A900_UserControl\A901_Heder.ascx.cs">
       <DependentUpon>A901_Heder.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,6 +226,7 @@
     <Compile Include="A900_UserControl\A902_Menu.ascx.designer.cs">
       <DependentUpon>A902_Menu.ascx</DependentUpon>
     </Compile>
+    <Compile Include="A900_UserControl\A903_UserControlUI.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

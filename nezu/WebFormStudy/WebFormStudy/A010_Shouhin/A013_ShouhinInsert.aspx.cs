@@ -13,41 +13,7 @@ namespace WebFormStudy.A010_Shouhin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // 入力エラーメッセージを設定
-            // (エラーメッセージを一元管理するため(customValidatorは除く)、ページ表示時に設定)
-            foreach (BaseValidator valid in Page.Validators)
-            {
-                switch (valid.GetType().Name)
-                {
-                    case "RequiredFieldValidator":
-                        // 必須チェック
-                        valid.ErrorMessage = String.Format(
-                            "{0}は必須です。", valid.ErrorMessage);
-                        break;
-                    case "RegularExpressionValidator":
-                        if (valid.UniqueID == "regShouhinId") 
-                        {
-                            // 桁チェック(商品IDのみ)
-                            valid.ErrorMessage = String.Format(
-                                "{0}は半角数字5桁で入力してください。", valid.ErrorMessage);
-                        }
-                        else 
-                        {
-                            // 数値チェック
-                            valid.ErrorMessage = String.Format(
-                                "{0}は半角数字で入力してください。", valid.ErrorMessage);
-                        }
-                        break;
-                    case "RangeValidator":
-                        // 範囲チェック
-                        valid.ErrorMessage = String.Format(
-                        "{0}は{1}～{2}の範囲で入力してください。",
-                        valid.ErrorMessage,
-                        ((RangeValidator)valid).MinimumValue,
-                        ((RangeValidator)valid).MaximumValue);
-                        break;
-                }
-            }
+
         }
 
         protected void btnInsert_Click(object sender, EventArgs e)

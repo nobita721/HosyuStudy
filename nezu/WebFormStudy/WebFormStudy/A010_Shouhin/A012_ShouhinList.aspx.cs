@@ -20,6 +20,11 @@ namespace WebFormStudy.A010_Shouhin
             cb.ShouhinName = Request.QueryString["shouhinname"];
             cb.ShouhinDetail = Request.QueryString["shouhindetail"];
 
+            // 検索画面の入力値を保持したいため、hiddenFieldにも設定
+            HiddenShouhinId.Value = cb.ShouhinId;
+            HiddenShouhinName.Value = cb.ShouhinName;
+            HiddenShouhinDetail.Value = cb.ShouhinDetail;
+
             // データ取得、グリッドビューに設定
             A952_ShouhinBL sb = new A952_ShouhinBL();
             ShouhinGridView.DataSource = sb.GetShouhinSelect(cb);
@@ -35,9 +40,26 @@ namespace WebFormStudy.A010_Shouhin
 
         protected void ShouhinGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             // GridViewの選択列の商品ID取得・編集画面に遷移
-            String shouhinid = HttpUtility.UrlEncode(ShouhinGridView.SelectedDataKey.Values["ShouhinId"].ToString());
-            Response.Redirect("A014_ShouhinUpdate.aspx?shouhinid=" + shouhinid);
+            String shouhinid = ShouhinGridView.SelectedDataKey.Values["ShouhinId"].ToString();
+            Response.Redirect("A014_ShouhinUpdate.aspx?shouhinid=" + shouhinid + 
+                                                    "&kshouhinid=" + HiddenShouhinId.Value + 
+                                                    "&kshouhinname=" + HiddenShouhinName.Value + 
+                                                    "&kshouhindetail=" + HiddenShouhinDetail.Value);
+
+        }
+
+        protected void ShouhinGridView_RowDeleting(Object sender, GridViewDeleteEventArgs e)
+        {
+
+            // GridViewの選択列の商品ID取得・削除画面に遷移
+            String shouhinid = ShouhinGridView.Rows[e.RowIndex].Cells[0].Text;
+            Response.Redirect("A015_ShouhinDelete.aspx?shouhinid=" + shouhinid +
+                                                    "&kshouhinid=" + HiddenShouhinId.Value +
+                                                    "&kshouhinname=" + HiddenShouhinName.Value +
+                                                    "&kshouhindetail=" + HiddenShouhinDetail.Value);
+
         }
     }
 }

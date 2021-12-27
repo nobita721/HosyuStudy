@@ -24,14 +24,14 @@ namespace WebFormBL
             if (cb.ShouhinId != String.Empty)
             {
                 // 商品ID条件設定
-                queryWhereAddString = " AND ShouhinId LIKE @ShouhinId";
+                queryWhereAddString = " AND (ShouhinId LIKE @ShouhinId";
             }
             if (cb.ShouhinName != String.Empty)
             {
                 // 商品名条件設定
                 if (queryWhereAddString == String.Empty)
                 {
-                    queryWhereAddString = queryWhereAddString + " AND ShouhinName LIKE @ShouhinName";
+                    queryWhereAddString = queryWhereAddString + " AND (ShouhinName LIKE @ShouhinName";
                 }
                 else
                 {
@@ -43,12 +43,16 @@ namespace WebFormBL
                 // 商品詳細条件設定
                 if (queryWhereAddString == String.Empty)
                 {
-                    queryWhereAddString = queryWhereAddString + " AND ShouhinDetail LIKE @ShouhinDetail";
+                    queryWhereAddString = queryWhereAddString + " AND (ShouhinDetail LIKE @ShouhinDetail";
                 }
                 else
                 {
                     queryWhereAddString = queryWhereAddString + " OR ShouhinDetail LIKE @ShouhinDetail";
                 }
+            }
+            if (queryWhereAddString != String.Empty) 
+            {
+                queryWhereAddString = queryWhereAddString + ")";
             }
 
             // 商品IDで昇順
@@ -93,7 +97,7 @@ namespace WebFormBL
             // 接続文字列取得
             String connectionString = ConfigurationManager.ConnectionStrings["HosyuStudy"].ConnectionString;
 
-            //接続情報を使ってコネクションを生成
+            // 接続情報を使ってコネクションを生成
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
 
@@ -116,6 +120,67 @@ namespace WebFormBL
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
+            }
+        }
+
+        // データ更新
+        public void ShouhinUpdate(A950_CommonPropertyBL cb)
+        {
+            // 接続文字列取得
+            String connectionString = ConfigurationManager.ConnectionStrings["HosyuStudy"].ConnectionString;
+
+            // 接続情報を使ってコネクションを生成
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                // クエリ作成
+                DateTime dt = DateTime.Now;
+                String updTime = dt.ToString("yyyy/MM/dd HH:mm:ss.fff");
+                SqlCommand cmd = new SqlCommand("UPDATE T_Shouhin SET " +
+                                                "ShouhinName = @ShouhinName, " +
+                                                "ShouhinDetail = @ShouhinDetail, " +
+                                                "ZaikoSuu = @ZaikoSuu, " +
+                                                "UpdateDate = '" + updTime + "'" +
+                                                "Where ShouhinId = @ShouhinId", conn);
+
+                // パラメータ設定
+                cmd.Parameters.AddWithValue("@ShouhinId", cb.ShouhinId);
+                cmd.Parameters.AddWithValue("@ShouhinName", cb.ShouhinName);
+                cmd.Parameters.AddWithValue("@ShouhinDetail", cb.ShouhinDetail);
+                cmd.Parameters.AddWithValue("@ZaikoSuu", cb.ZaikoSuu);
+
+                // DB接続、クエリ実行、DB切断
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        // データ削除
+        public void ShouhinDelete(A950_CommonPropertyBL cb)
+        {
+            // 接続文字列取得
+            String connectionString = ConfigurationManager.ConnectionStrings["HosyuStudy"].ConnectionString;
+
+            // 接続情報を使ってコネクションを生成
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+
+                // クエリ作成
+                DateTime dt = DateTime.Now;
+                String updTime = dt.ToString("yyyy/MM/dd HH:mm:ss.fff");
+                SqlCommand cmd = new SqlCommand("UPDATE T_Shouhin SET " +
+                                                "Del_Flg = 1, " +
+                                                "UpdateDate = '" + updTime + "'" +
+                                                "Where ShouhinId = @ShouhinId", conn);
+
+                // パラメータ設定
+                cmd.Parameters.AddWithValue("@ShouhinId", cb.ShouhinId);
+
+                // DB接続、クエリ実行、DB切断
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
             }
         }
     }

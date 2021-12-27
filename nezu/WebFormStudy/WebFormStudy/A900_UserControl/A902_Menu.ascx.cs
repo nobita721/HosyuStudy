@@ -12,7 +12,7 @@ namespace WebFormStudy.A900_UserControl
     public partial class A903_Menu : System.Web.UI.UserControl
     {
         // 設定後のプロパティクラス
-        A950_CommonPropertyBL cpb;
+        A950_CommonPropertyBL cb;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,36 +21,44 @@ namespace WebFormStudy.A900_UserControl
             // メニュー制御
             // LinkMenuLeft:トップ画面・編集画面で表示
             // LinkMenuRight:トップ画面以外で表示
-            A951_CommonBL cb = new A951_CommonBL();
+            A903_UserControlUI uc = new A903_UserControlUI();
             String rPath = Request.Path;
-            string mode = Request.QueryString["Mode"];
-            cpb = cb.GetCommmonInfo(rPath, "menu", mode);
-            LinkMenuLeft.Text = cpb.MenuNameLeft;
-            LinkMenuLeft.Visible = cpb.MenuLeftHide;
-            LinkMenuLeft.Enabled = cpb.MenuLeftEnab;
-            LinkMenuLeft.ForeColor = cpb.MenuLeftForeColor;
-            LinkMenuRight.Text = cpb.MenuNameRight;
-            LinkMenuRight.Visible = cpb.MenuRightHide;
-            LinkMenuRight.Enabled = cpb.MenuRightEnab;
-            LinkMenuRight.ForeColor = cpb.MenuRightForeColor;
+            string shouhinId = Request.QueryString["shouhinid"];
+            string mode = Request.QueryString["mode"];
+            cb = uc.GetCommmonInfo(rPath, "menu", shouhinId, mode);
+            LinkMenuLeft.Text = cb.MenuNameLeft;
+            LinkMenuLeft.Visible = cb.MenuLeftHide;
+            LinkMenuLeft.Enabled = cb.MenuLeftEnab;
+            LinkMenuLeft.ForeColor = cb.MenuLeftForeColor;
+            LinkMenuRight.Text = cb.MenuNameRight;
+            LinkMenuRight.Visible = cb.MenuRightHide;
+            LinkMenuRight.Enabled = cb.MenuRightEnab;
+            LinkMenuRight.ForeColor = cb.MenuRightForeColor;
+
+            // 検索画面の入力値を保持したいため、hiddenFieldにも設定
+            HiddenShouhinId.Value = Request.QueryString["kshouhinid"];
+            HiddenShouhinName.Value = Request.QueryString["kshouhinname"];
+            HiddenShouhinDetail.Value = Request.QueryString["kshouhindetail"];
         }
 
         // トップ画面以外
         protected void LinkMenuRight_Click(object sender, EventArgs e)
         {
             // 編集画面か編集画面以外(トップ画面除く)で遷移先制御
-            switch (cpb.DisplayId)
+            switch (cb.DisplayId)
             {
                 case "A014":    // 編集画面
                     // 参照リンククリック時
-                    cpb.Mode = "s";
+                    cb.Mode = "s";
 
-                    // 同一ウィンドウで遷移する。(モードあり)
-                    Response.Redirect(cpb.Url + cpb.Mode);
+                    // 同一ウィンドウで遷移する。(モード及び値保持用パラメータあり)
+                    Response.Redirect(cb.Url + cb.Mode + "&kshouhinid=" + HiddenShouhinId.Value +
+                                    "&kshouhinname=" + HiddenShouhinName.Value +
+                                    "&kshouhindetail=" + HiddenShouhinDetail.Value);
                     break;
                 default:
-                    // 同一ウィンドウで遷移する。(モードなし)
-                    Response.Redirect(cpb.Url);
+                    // 同一ウィンドウで遷移する。(モード及び値保持用パラメータなし)
+                    Response.Redirect(cb.Url);
                     break;
             }
         }
@@ -59,7 +67,7 @@ namespace WebFormStudy.A900_UserControl
         protected void LinkMenuLeft_Click(object sender, EventArgs e)
         {
             // 別ウィンドウ表示か同一ウィンドウ表示で遷移先制御
-            switch (cpb.DisplayId)
+            switch (cb.DisplayId)
             {
                 case "A001":    // トップ画面
                     // 別ウィンドウで遷移する。
@@ -70,10 +78,12 @@ namespace WebFormStudy.A900_UserControl
                     break;
                 case "A014":    // 編集画面
                     // 編集リンククリック時
-                    cpb.Mode = "h";
+                    cb.Mode = "h";
 
-                    // 同一ウィンドウで遷移する。(モードあり)
-                    Response.Redirect(cpb.Url + cpb.Mode);
+                    // 同一ウィンドウで遷移する。(モード及び値保持用パラメータあり)
+                    Response.Redirect(cb.Url + cb.Mode + "&kshouhinid=" + HiddenShouhinId.Value +
+                                    "&kshouhinname=" + HiddenShouhinName.Value +
+                                    "&kshouhindetail=" + HiddenShouhinDetail.Value);
                     break;
             }
         }

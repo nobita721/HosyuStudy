@@ -18,7 +18,7 @@ namespace WebFormStudy.A900_UserControl
             String rPath = Request.Path;
 
             // ヘッタータイトル
-            A951_CommonBL cb = new A951_CommonBL();
+            A903_UserControlUI cb = new A903_UserControlUI();
             A950_CommonPropertyBL cpb = cb.GetCommmonInfo(rPath, "header");
             lblHederTitle.Text = cpb.DisplayName;
         }
