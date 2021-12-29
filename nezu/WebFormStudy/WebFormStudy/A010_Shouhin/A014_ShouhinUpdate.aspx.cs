@@ -12,6 +12,9 @@ namespace WebFormStudy.A010_Shouhin
 
     public partial class A014_ShouhinUpdate : System.Web.UI.Page
     {
+        // 計算結果が在庫数に反映されているかを判定
+        // (数量入力→フォーカスアウトせず更新ボタンクリックしたときの対応)
+        private bool calcchk = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -135,6 +138,32 @@ namespace WebFormStudy.A010_Shouhin
             SetZaikoSuuCalc();
         }
 
+        // 在庫数範囲チェック
+        protected void customValid_ServerValidate(object sender, ServerValidateEventArgs e)
+        {
+            // 計算後の結果が在庫数に反映されているかチェック
+            if (!calcchk) 
+            {
+                SetZaikoSuuCalc();
+            }
+            
+            if (int.Parse(txtZaikoSuu.Text) < 0 || int.Parse(txtZaikoSuu.Text) > 20)
+            {
+                e.IsValid = false;
+                ClientScriptManager cs = Page.ClientScript;
+                string js = "";
+                js += "<script language='JavaScript'>";
+                js += "alert('在庫数が0～20の範囲では、ありません。数量を再入力してください。')";
+                js += "</script>";
+                cs.RegisterStartupScript(this.Page.GetType(), "startup", js);
+                calcchk = false;
+            }
+            else
+            {
+                e.IsValid = true;
+            }
+        }
+
         // 在庫数を計算した結果を表示
         private void SetZaikoSuuCalc() 
         {
@@ -160,26 +189,7 @@ namespace WebFormStudy.A010_Shouhin
                 // 出荷
                 txtZaikoSuu.Text = (Zaikosuu - suuyou).ToString();
             }
-        }
-
-        // 在庫数範囲チェック
-        protected void customValid_ServerValidate(object sender, ServerValidateEventArgs e)
-        {
-
-            if (int.Parse(txtZaikoSuu.Text) < 0 || int.Parse(txtZaikoSuu.Text) > 20)
-            {
-                e.IsValid = false;
-                ClientScriptManager cs = Page.ClientScript;
-                string js = "";
-                js += "<script language='JavaScript'>";
-                js += "alert('在庫数が0～20の範囲では、ありません。数量を再入力してください。')";
-                js += "</script>";
-                cs.RegisterStartupScript(this.Page.GetType(), "startup", js);
-            }
-            else
-            {
-                e.IsValid = true;
-            }
+            calcchk = true;
         }
     }
 }
