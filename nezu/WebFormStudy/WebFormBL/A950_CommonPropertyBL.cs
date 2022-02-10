@@ -21,6 +21,7 @@ namespace WebFormBL
         private string m_mode;
         private string m_url;
         private string m_shouhinid;
+        private int m_histno;
         private string m_shouhinname;
         private string m_shouhindetail;
         private int m_nyuukasuu;
@@ -103,6 +104,12 @@ namespace WebFormBL
         {
             get { return m_shouhinid; }
             set { m_shouhinid = value; }
+        }
+        // 履歴No
+        public int HistNo
+        {
+            get { return m_histno; }
+            set { m_histno = value; }
         }
         // 商品名
         public string ShouhinName

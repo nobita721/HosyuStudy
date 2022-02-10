@@ -53,8 +53,8 @@ namespace WebFormStudy.A900_UserControl
                 case "A013":    // 商品登録画面
                     cb.DisplayName = "商品登録";
                     break;
-                case "A014":    // 商品編集画面
-                    cb.DisplayName = "商品編集";
+                case "A014":    // 商品詳細画面
+                    cb.DisplayName = "商品詳細";
                     break;
                 case "A015":    // 商品削除画面
                     cb.DisplayName = "商品削除";
@@ -97,7 +97,7 @@ namespace WebFormStudy.A900_UserControl
                     cb.MenuRightHide = false;
                     cb.Url = String.Empty;
                     break;
-                case "A014":    // 商品編集画面から遷移
+                case "A014":    // 商品詳細画面から遷移
                     cb.MenuNameLeft = "編集";
                     cb.MenuLeftHide = true;
                     cb.MenuNameRight = "／参照";

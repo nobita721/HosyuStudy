@@ -19,7 +19,7 @@ namespace WebFormStudy.A900_UserControl
             lblHederTitle.Text = "メニュー";
 
             // メニュー制御
-            // LinkMenuLeft:トップ画面・編集画面で表示
+            // LinkMenuLeft:トップ画面・詳細画面で表示
             // LinkMenuRight:トップ画面以外で表示
             A903_UserControlUI uc = new A903_UserControlUI();
             String rPath = Request.Path;
@@ -44,10 +44,10 @@ namespace WebFormStudy.A900_UserControl
         // トップ画面以外
         protected void LinkMenuRight_Click(object sender, EventArgs e)
         {
-            // 編集画面か編集画面以外(トップ画面除く)で遷移先制御
+            // 詳細画面か詳細画面以外(トップ画面除く)で遷移先制御
             switch (cb.DisplayId)
             {
-                case "A014":    // 編集画面
+                case "A014":    // 詳細画面
                     // 参照リンククリック時
                     cb.Mode = "s";
 
@@ -76,7 +76,7 @@ namespace WebFormStudy.A900_UserControl
                         "'ShouhinSerch','screenX=0,screenY=0,left=0,top=0," + 
                         "width=screen.width,height=screen.height,scrollbars=0,toolbar=0,menubar=0,staus=0,resizable=0');", true);
                     break;
-                case "A014":    // 編集画面
+                case "A014":    // 詳細画面
                     // 編集リンククリック時
                     cb.Mode = "h";
 

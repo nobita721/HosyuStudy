@@ -132,13 +132,13 @@ namespace WebFormStudy.A010_Shouhin
         protected global::System.Web.UI.WebControls.TextBox txtZaikoSuu;
 
         /// <summary>
-        /// cusZaikoSuu コントロール。
+        /// ranZaikoSuu コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator cusZaikoSuu;
+        protected global::System.Web.UI.WebControls.RangeValidator ranZaikoSuu;
 
         /// <summary>
         /// lblNyuuSyukka コントロール。
@@ -177,22 +177,13 @@ namespace WebFormStudy.A010_Shouhin
         protected global::System.Web.UI.WebControls.Label lblSuuRyou;
 
         /// <summary>
-        /// txtSuuRyou コントロール。
+        /// ddlSuuRyou コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSuuRyou;
-
-        /// <summary>
-        /// regSuuRyou コントロール。
-        /// </summary>
-        /// <remarks>
-        /// 自動生成されたフィールド。
-        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regSuuRyou;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSuuRyou;
 
         /// <summary>
         /// valSum コントロール。
@@ -229,6 +220,15 @@ namespace WebFormStudy.A010_Shouhin
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenShouhinDetail;
+
+        /// <summary>
+        /// HiddenHistNo コントロール。
+        /// </summary>
+        /// <remarks>
+        /// 自動生成されたフィールド。
+        /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenHistNo;
 
         /// <summary>
         /// PnlFooter コントロール。

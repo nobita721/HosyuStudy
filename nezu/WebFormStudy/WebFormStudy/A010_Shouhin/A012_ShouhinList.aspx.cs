@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebFormBL;
-using System.Data;
 
 namespace WebFormStudy.A010_Shouhin
 {
@@ -25,7 +24,7 @@ namespace WebFormStudy.A010_Shouhin
             HiddenShouhinName.Value = cb.ShouhinName;
             HiddenShouhinDetail.Value = cb.ShouhinDetail;
 
-            // データ取得、グリッドビューに設定
+            // データ取得、グリッドビューに設定(クラス)
             A952_ShouhinBL sb = new A952_ShouhinBL();
             ShouhinGridView.DataSource = sb.GetShouhinSelect(cb);
             ShouhinGridView.DataBind();
@@ -41,7 +40,7 @@ namespace WebFormStudy.A010_Shouhin
         protected void ShouhinGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            // GridViewの選択列の商品ID取得・編集画面に遷移
+            // GridViewの選択列の商品ID取得・詳細画面に遷移
             String shouhinid = ShouhinGridView.SelectedDataKey.Values["ShouhinId"].ToString();
             Response.Redirect("A014_ShouhinUpdate.aspx?shouhinid=" + shouhinid + 
                                                     "&kshouhinid=" + HiddenShouhinId.Value + 

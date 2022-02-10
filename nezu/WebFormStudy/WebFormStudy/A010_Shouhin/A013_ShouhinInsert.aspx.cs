@@ -13,7 +13,7 @@ namespace WebFormStudy.A010_Shouhin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // 処理なし
         }
 
         protected void btnInsert_Click(object sender, EventArgs e)
@@ -25,13 +25,14 @@ namespace WebFormStudy.A010_Shouhin
                 // 入力値をプロパティに設定
                 A950_CommonPropertyBL cb = new A950_CommonPropertyBL();
                 cb.ShouhinId = txtShouhinId.Text;
+                cb.HistNo = 1;
                 cb.ShouhinName = txtShouhinName.Text;
                 cb.ShouhinDetail = txtShouhinDetail.Text;
                 cb.NyuukaSuu = int.Parse(txtNyuukaSuu.Text);
 
                 // 登録処理実行
                 A952_ShouhinBL sb = new A952_ShouhinBL();
-                sb.ShouhinInsert(cb);
+                sb.ShouhinInsert(cb, true);
 
                 // 商品検索画面に戻る
                 Response.Redirect("A011_ShouhinSerch.aspx");
@@ -56,12 +57,15 @@ namespace WebFormStudy.A010_Shouhin
 
             // 重複チェックして結果を設定
             A952_ShouhinBL sb = new A952_ShouhinBL();
-            DataSet ds = new DataSet();
-            DataTable dt;
-            ds = sb.GetShouhinSelect(cb);
-            dt = ds.Tables[0];
+            //DataSet ds = new DataSet();
+            //DataTable dt;
+            //ds = sb.GetShouhinSelect(cb);
+            //dt = ds.Tables[0];
 
-            if (dt.Rows.Count > 0)
+            // クラスから取得
+            List<V_Shouhin> shouhinlist = sb.GetShouhinSelect(cb);
+
+            if (shouhinlist.Count > 0)
             {
                 e.IsValid = false;
                 // CustomValidatorのエラーメッセージをValidationSummaryが走るタイミングで

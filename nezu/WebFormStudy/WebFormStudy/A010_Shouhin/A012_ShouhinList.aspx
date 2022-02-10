@@ -19,11 +19,11 @@
             <win:NaviHeader id="navihead" runat="Server" />
         </div>
         <div Class="Content">
-            <%--<asp:GridView ID="ShouhinGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ShouhinId" DataSourceID="sds" ForeColor="#333333" GridLines="None" Width="1200px">--%>
             <asp:GridView ID="ShouhinGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ShouhinId" ForeColor="#333333" GridLines="None" Width="1200px" OnSelectedIndexChanged="ShouhinGridView_SelectedIndexChanged" OnRowDeleting="ShouhinGridView_RowDeleting">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="ShouhinId" HeaderText="商品ID" ReadOnly="True" />
+                    <asp:BoundField DataField="HistNo" HeaderText="" Visible="false" />
                     <asp:BoundField DataField="ShouhinName" HeaderText="商品名" />
                     <asp:BoundField DataField="ShouhinDetail" HeaderText="商品詳細"  />
                     <asp:BoundField DataField="ZaikoSuu" HeaderText="在庫数" >
@@ -47,7 +47,6 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            <%--<asp:SqlDataSource ID="sds" runat="server" ConnectionString="<%$ ConnectionStrings:HosyuStudy %>" ></asp:SqlDataSource>--%>
             <%--検索画面の入力値を保持するため設定--%>
             <asp:HiddenField id="HiddenShouhinId" runat="server" value=""/>
             <asp:HiddenField id="HiddenShouhinName" runat="server" value=""/>
