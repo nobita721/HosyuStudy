@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Common;
 using WebFormBL;
 
 namespace WebFormStudy.A010_Shouhin
@@ -12,23 +13,40 @@ namespace WebFormStudy.A010_Shouhin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                // パラメータの値をプロパティに設定
+                A950_CommonPropertyBL cb = new A950_CommonPropertyBL();
+                cb.ShouhinId = Request.QueryString["shouhinid"];
+                cb.ShouhinName = Request.QueryString["shouhinname"];
+                cb.ShouhinDetail = Request.QueryString["shouhindetail"];
 
-            // パラメータの値をプロパティに設定
-            A950_CommonPropertyBL cb = new A950_CommonPropertyBL();
-            cb.ShouhinId = Request.QueryString["shouhinid"];
-            cb.ShouhinName = Request.QueryString["shouhinname"];
-            cb.ShouhinDetail = Request.QueryString["shouhindetail"];
+                // 検索画面の入力値を保持したいため、hiddenFieldにも設定
+                HiddenShouhinId.Value = cb.ShouhinId;
+                HiddenShouhinName.Value = cb.ShouhinName;
+                HiddenShouhinDetail.Value = cb.ShouhinDetail;
 
-            // 検索画面の入力値を保持したいため、hiddenFieldにも設定
-            HiddenShouhinId.Value = cb.ShouhinId;
-            HiddenShouhinName.Value = cb.ShouhinName;
-            HiddenShouhinDetail.Value = cb.ShouhinDetail;
+                // データ取得、グリッドビューに設定(クラス)
+                A952_ShouhinBL sb = new A952_ShouhinBL();
+                ShouhinGridView.DataSource = sb.GetShouhinSelect(cb);
+                ShouhinGridView.DataBind();
+            }
+            catch (Exception ex)
+            {
+                // エラー情報を設定する
+                errorinfoBase.diplayname = title.Text;
+                errorinfoBase.program = Request.Path;
 
-            // データ取得、グリッドビューに設定(クラス)
-            A952_ShouhinBL sb = new A952_ShouhinBL();
-            ShouhinGridView.DataSource = sb.GetShouhinSelect(cb);
-            ShouhinGridView.DataBind();
+                // UIで発生した場合エラー発生箇所を設定する。
+                if (errorinfoBase.errlocation == null) 
+                {
+                    errorinfoBase.errlocation = "【UI】Page_Loadイベント例外情報";
+                }
+                errorinfoBase.setErrorInfo(ex);
 
+                // エラーページに遷移
+                Response.Redirect("/errorinfo.aspx");
+            }
         }
 
         protected void btnReturn_Click(object sender, EventArgs e)
@@ -60,5 +78,6 @@ namespace WebFormStudy.A010_Shouhin
                                                     "&kshouhindetail=" + HiddenShouhinDetail.Value);
 
         }
+
     }
 }

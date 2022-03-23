@@ -7,11 +7,11 @@
 // </自動生成>
 //------------------------------------------------------------------------------
 
-namespace WebFormStudy.A010_Shouhin
+namespace WebFormStudy
 {
 
 
-    public partial class A012_ShouhinList
+    public partial class errorinfo
     {
 
         /// <summary>
@@ -33,75 +33,75 @@ namespace WebFormStudy.A010_Shouhin
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// navimenu コントロール。
+        /// lblTitle コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::WebFormStudy.A900_UserControl.A903_Menu navimenu;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
-        /// navihead コントロール。
+        /// lblContact コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::WebFormStudy.A900_UserControl.A901_Heder navihead;
+        protected global::System.Web.UI.WebControls.Label lblContact;
 
         /// <summary>
-        /// ShouhinGridView コントロール。
+        /// btnErrInfoSave コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ShouhinGridView;
+        protected global::System.Web.UI.WebControls.Button btnErrInfoSave;
 
         /// <summary>
-        /// HiddenShouhinId コントロール。
+        /// btnErrInfoClose コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenShouhinId;
+        protected global::System.Web.UI.WebControls.Button btnErrInfoClose;
 
         /// <summary>
-        /// HiddenShouhinName コントロール。
+        /// lblDisplay コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenShouhinName;
+        protected global::System.Web.UI.WebControls.Label lblDisplay;
 
         /// <summary>
-        /// HiddenShouhinDetail コントロール。
+        /// lblDateTime コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenShouhinDetail;
+        protected global::System.Web.UI.WebControls.Label lblDateTime;
 
         /// <summary>
-        /// PnlFooter コントロール。
+        /// lblProgram コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PnlFooter;
+        protected global::System.Web.UI.WebControls.Label lblProgram;
 
         /// <summary>
-        /// btnReturn コントロール。
+        /// lblErrInfo コントロール。
         /// </summary>
         /// <remarks>
         /// 自動生成されたフィールド。
         /// 変更するには、フィールドの宣言をデザイナー ファイルから分離コード ファイルに移動します。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReturn;
+        protected global::System.Web.UI.WebControls.Label lblErrInfo;
     }
 }

@@ -1,0 +1,6 @@
+C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\Common\bin\Debug\Common.dll
+C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\Common\bin\Debug\Common.pdb
+C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\Common\obj\Debug\Common.csproj.AssemblyReference.cache
+C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\Common\obj\Debug\Common.dll
+C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\Common\obj\Debug\Common.pdb

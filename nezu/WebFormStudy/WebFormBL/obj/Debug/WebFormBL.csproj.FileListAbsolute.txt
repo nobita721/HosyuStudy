@@ -18,3 +18,5 @@ C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機
 C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\WebFormBL\obj\Debug\WebFormBL.dll
 C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\WebFormBL\obj\Debug\WebFormBL.pdb
 C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\WebFormBL\obj\Debug\WebFormBL.csproj.AssemblyReference.cache
+C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\WebFormBL\bin\Debug\Common.dll
+C:\Users\Nezu\01_XPにあったやつ\モールス\勤務届け\ISF\自宅待機の勉強\05_web_vs2019\01_hosyuStudy\nezu\WebFormStudy\WebFormBL\bin\Debug\Common.pdb

@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>商品一覧</title>
+    <title id="title">商品一覧</title>
     
     <webopt:bundlereference runat="server" path="~/Content/Common.css" />
 

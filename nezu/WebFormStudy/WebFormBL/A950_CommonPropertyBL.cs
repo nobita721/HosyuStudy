@@ -135,5 +135,6 @@ namespace WebFormBL
             get { return m_zaikosuu; }
             set { m_zaikosuu = value; }
         }
+
     }
 }

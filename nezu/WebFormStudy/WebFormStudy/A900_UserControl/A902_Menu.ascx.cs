@@ -73,8 +73,8 @@ namespace WebFormStudy.A900_UserControl
                     // 別ウィンドウで遷移する。
                     ClientScriptManager cs = Page.ClientScript;
                     cs.RegisterStartupScript(this.Page.GetType(), "openWinMenu", "window.open('../A010_Shouhin/A011_ShouhinSerch.aspx', " +
-                        "'ShouhinSerch','screenX=0,screenY=0,left=0,top=0," + 
-                        "width=screen.width,height=screen.height,scrollbars=0,toolbar=0,menubar=0,staus=0,resizable=0');", true);
+                        "'ShouhinSerch','screenX=0,screenY=0,left=0,top=0," +
+                        "width=1871,height=970,scrollbars=0,toolbar=0,menubar=0,staus=0,resizable=0');", true);
                     break;
                 case "A014":    // 詳細画面
                     // 編集リンククリック時

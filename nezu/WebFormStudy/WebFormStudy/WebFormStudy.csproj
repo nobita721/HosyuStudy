@@ -129,6 +129,7 @@
     <Content Include="Content\Common.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="errorinfo.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -257,6 +258,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="errorinfo.aspx.cs">
+      <DependentUpon>errorinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorinfo.aspx.designer.cs">
+      <DependentUpon>errorinfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,6 +295,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Log\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -300,6 +309,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{37eb9c76-8350-442d-818f-14ec5b8029f4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebFormBL\WebFormBL.csproj">
       <Project>{d40051ea-a611-4bd4-b8b2-c572ac77d27e}</Project>
       <Name>WebFormBL</Name>

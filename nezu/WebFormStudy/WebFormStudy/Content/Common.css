@@ -23,12 +23,12 @@
 
 .Content {
     float: left;
+    height:750px;
     margin-left: 359px;
 }
 
 .Footer {
     float: right;
-    margin-top: -240px;
     margin-right: 9px;
 }
 

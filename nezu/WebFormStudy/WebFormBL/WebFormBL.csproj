@@ -72,11 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="A950_CommonPropertyBL.cs" />
-    <Compile Include="A951_Common_未使用.cs" />
     <Compile Include="A952_ShouhinBL.cs" />
-    <Compile Include="A953_ShouhinBL_Entity_未使用.cs" />
-    <Compile Include="Models\T_Shouhin.cs" />
-    <Compile Include="Models\T_ShouhinContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="V_Shouhin.cs" />
   </ItemGroup>
@@ -86,6 +82,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{37eb9c76-8350-442d-818f-14ec5b8029f4}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
