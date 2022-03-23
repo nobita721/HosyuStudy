@@ -34,33 +34,8 @@ namespace WebFormStudy
         
         protected void btnErrInfoSave_Click(object sender, EventArgs e)
         {
-            // エラー画面をhtmlで保存する。→苦戦中。一旦後回し。
-
-            //var filename = @"test.aspx.html";
-            //Response.Clear();
-            //Response.ContentType = "text/html";
-            //Response.HeaderEncoding = Encoding.GetEncoding("Shift_JIS");
-            //Response.ContentEncoding = Encoding.GetEncoding("Shift_JIS");
-            //Response.AddHeader("Content-Disposition", "attachment;filename=" + Server.UrlEncode(filename));
-            //Response.End();
-
-            //string filepath = Request.PhysicalPath;
-            //fileDownload(filepath, "text/html");
+            // エラー画面をhtmlで保存する。
         }
 
-        // エラー画面をhtmlでダウンロードする
-        private void fileDownload(string filepath, string type)
-        {
-            Response.Clear();
-            Response.Buffer = true;
-            Response.ContentType = type;
-            Response.AddHeader("Content-Disposition", String.Format("attachment;filename={0}", "errorinfo.html"));
-
-            // ファイルを書き出し
-            Response.WriteFile(filepath);
-            Response.Flush();
-            Response.End();
-
-        }
     }
 }

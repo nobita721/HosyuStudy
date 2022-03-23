@@ -27,7 +27,7 @@ namespace WebFormStudy
                     this.Server.GetLastError() is HttpUnhandledException ?
                     this.Server.GetLastError().InnerException :
                     this.Server.GetLastError();
-            //this.Server.ClearError();
+
             if (ex != null)
             {
                 // 画面名やプログラムは出力しない。
