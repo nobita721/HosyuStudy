@@ -106,10 +106,16 @@ namespace WebFormBL
 
                 return list;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 // エラー発生箇所を設定
                 errorinfoBase.errlocation = "【BL】データ取得処理例外情報";
+
+                // exをスローしなくても、UIに投げられたタイミングで発生行は、消えちゃうので
+                // このタイミングでスタックトレースの情報を共通クラスに格納することにした。
+                // throwだけだと発生行以外の内容が二重で出力されるので、throw exのまま
+                errorinfoBase.innerStackTrace = ex.StackTrace;
+
                 throw ex;
             }
         }
@@ -157,11 +163,11 @@ namespace WebFormBL
                     conn.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // エラー発生箇所を設定
                 errorinfoBase.errlocation = "【BL】データ登録処理例外情報";
-                throw ex;
+                throw;
             }
         }
 
@@ -196,11 +202,11 @@ namespace WebFormBL
                     conn.Close();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // エラー発生箇所を設定
                 errorinfoBase.errlocation = "【BL】データ削除処理例外情報";
-                throw ex;
+                throw;
             }
         }
     }
