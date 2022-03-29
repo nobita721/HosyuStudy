@@ -112,7 +112,7 @@ namespace WebFormBL
                 errorinfoBase.errlocation = "【BL】データ取得処理例外情報";
 
                 // exをスローしなくても、UIに投げられたタイミングで発生行は、消えちゃうので
-                // このタイミングでスタックトレースの情報を共通クラスに格納することにした。
+                // このタイミングのスタックトレースの情報も共通クラスに格納することにした。
                 // throwだけだと発生行以外の内容が二重で出力されるので、throw exのまま
                 errorinfoBase.innerStackTrace = ex.StackTrace;
 
