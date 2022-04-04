@@ -80,7 +80,7 @@ namespace WebFormStudy.A010_Shouhin
                 A952_ShouhinBL sb = new A952_ShouhinBL();
 
                 // クラスから取得
-                List<V_Shouhin> shouhinlist = sb.GetShouhinSelect(cb);
+                List<V_Shouhin> shouhinlist = sb.GetShouhinSelect(cb, true);
 
                 if (shouhinlist.Count > 0)
                 {

@@ -36,7 +36,7 @@ namespace Common
             {
                 message.AppendLine("   ::::::: InnerException Start :::::::");
                 message.AppendLine(innerStackTrace);
-                message.AppendLine("   ::::::: InnerException End :::::::");
+                message.AppendLine("   ::::::: InnerException End   :::::::");
             }
             message.AppendLine(ex.StackTrace);
         }

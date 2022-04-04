@@ -14,31 +14,43 @@ namespace WebFormBL
     {
 
         // データ取得
-        public List<V_Shouhin> GetShouhinSelect(A950_CommonPropertyBL cb)
+        public List<V_Shouhin> GetShouhinSelect(A950_CommonPropertyBL cb, bool inpchk = false)
         {
             try
             {
                 // クエリ作成
                 String queryString = String.Empty;
-                queryString = "SELECT ShouhinId, HistNo, ShouhinName, ShouhinDetail, ZaikoSuu, UpdateDate FROM V_Shouhin WHERE Del_Flg = 0";
+                queryString = "SELECT ShouhinId, HistNo, ShouhinName, ShouhinDetail, ZaikoSuu, UpdateDate FROM V_Shouhin";
 
                 // Where条件
                 String queryWhereAddString = String.Empty;
+                if (!inpchk)
+                {
+                    // 存在チェック以外
+                    queryWhereAddString = " WHERE Del_Flg = 0";
+                }
                 if (cb.ShouhinId != String.Empty)
                 {
                     // 商品ID条件設定
-                    queryWhereAddString = " AND (ShouhinId LIKE @ShouhinId";
+                    if (queryWhereAddString == String.Empty)
+                    {
+                        queryWhereAddString = queryWhereAddString + " WHERE ShouhinId LIKE @ShouhinId";
+                    }
+                    else
+                    {
+                        queryWhereAddString = queryWhereAddString + " AND ShouhinId LIKE @ShouhinId";
+                    }
                 }
                 if (cb.ShouhinName != String.Empty)
                 {
                     // 商品名条件設定
                     if (queryWhereAddString == String.Empty)
                     {
-                        queryWhereAddString = queryWhereAddString + " AND (ShouhinName LIKE @ShouhinName";
+                        queryWhereAddString = queryWhereAddString + " WHERE ShouhinName LIKE @ShouhinName";
                     }
                     else
                     {
-                        queryWhereAddString = queryWhereAddString + " OR ShouhinName LIKE @ShouhinName";
+                        queryWhereAddString = queryWhereAddString + " AND ShouhinName LIKE @ShouhinName";
                     }
                 }
                 if (cb.ShouhinDetail != String.Empty)
@@ -46,16 +58,12 @@ namespace WebFormBL
                     // 商品詳細条件設定
                     if (queryWhereAddString == String.Empty)
                     {
-                        queryWhereAddString = queryWhereAddString + " AND (ShouhinDetail LIKE @ShouhinDetail";
+                        queryWhereAddString = queryWhereAddString + " WHERE ShouhinDetail LIKE @ShouhinDetail";
                     }
                     else
                     {
-                        queryWhereAddString = queryWhereAddString + " OR ShouhinDetail LIKE @ShouhinDetail";
+                        queryWhereAddString = queryWhereAddString + " AND ShouhinDetail LIKE @ShouhinDetail";
                     }
-                }
-                if (queryWhereAddString != String.Empty) 
-                {
-                    queryWhereAddString = queryWhereAddString + ")";
                 }
 
                 // 商品IDで昇順
@@ -111,11 +119,10 @@ namespace WebFormBL
                 // エラー発生箇所を設定
                 errorinfoBase.errlocation = "【BL】データ取得処理例外情報";
 
-                // exをスローしなくても、UIに投げられたタイミングで発生行は、消えちゃうので
+                // exをスローしなくても、UIに投げられたタイミングで実際の発生行は、消えちゃうので
                 // このタイミングのスタックトレースの情報も共通クラスに格納することにした。
-                // throwだけだと発生行以外の内容が二重で出力されるので、throw exのまま
+                // throwだけだと発生行以外の内容が二重で出力されるので、throw exのままあえて破棄する
                 errorinfoBase.innerStackTrace = ex.StackTrace;
-
                 throw ex;
             }
         }
@@ -163,11 +170,12 @@ namespace WebFormBL
                     conn.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // エラー発生箇所を設定
                 errorinfoBase.errlocation = "【BL】データ登録処理例外情報";
-                throw;
+                errorinfoBase.innerStackTrace = ex.StackTrace;
+                throw ex;
             }
         }
 
@@ -202,11 +210,12 @@ namespace WebFormBL
                     conn.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // エラー発生箇所を設定
                 errorinfoBase.errlocation = "【BL】データ削除処理例外情報";
-                throw;
+                errorinfoBase.innerStackTrace = ex.StackTrace;
+                throw ex;
             }
         }
     }

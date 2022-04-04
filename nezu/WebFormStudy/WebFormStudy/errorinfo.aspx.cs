@@ -35,6 +35,19 @@ namespace WebFormStudy
         protected void btnErrInfoSave_Click(object sender, EventArgs e)
         {
             // エラー画面をhtmlで保存する。
+            //Response.AppendHeader("Content-Disposition", "attachment; filename=myfile.html");
+
+
+
+            //ClientScriptManager cs = Page.ClientScript;
+            //string js = "";
+            //js += "<script language='JavaScript'>";
+            //js += "";
+            //js += "</script>";
+            //cs.RegisterStartupScript(this.Page.GetType(), "startup", js);
+
+
+
         }
 
     }

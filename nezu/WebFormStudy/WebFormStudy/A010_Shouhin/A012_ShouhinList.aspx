@@ -19,7 +19,7 @@
             <win:NaviHeader id="navihead" runat="Server" />
         </div>
         <div Class="Content">
-            <asp:GridView ID="ShouhinGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ShouhinId" ForeColor="#333333" GridLines="None" Width="1200px" OnSelectedIndexChanged="ShouhinGridView_SelectedIndexChanged" OnRowDeleting="ShouhinGridView_RowDeleting">
+            <asp:GridView ID="ShouhinGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ShouhinId" ForeColor="#333333" GridLines="None" Width="1200px" OnSelectedIndexChanged="ShouhinGridView_SelectedIndexChanged" OnRowDeleting="ShouhinGridView_RowDeleting" ShowHeaderWhenEmpty="True">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="ShouhinId" HeaderText="商品ID" ReadOnly="True" />
